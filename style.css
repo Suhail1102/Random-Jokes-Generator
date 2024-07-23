@@ -75,6 +75,7 @@ h1{
     margin: auto;
     box-shadow: 2px 1px 50px #c4c3c3;
     text-align: center;
+        padding: 1rem;
     }
 
     .btn{
