@@ -54,6 +54,7 @@ h1{
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
+        height: 100vh;
         
     }
 
@@ -66,12 +67,12 @@ h1{
     
 
     .box{
-    width: 17rem;
-    height: 17rem;
+    width: 18rem;
+    height: 25rem;
     padding: 0.2rem;
-    font-size: 13px;
+    font-size: 11px;
     border-radius: 1rem;
-    margin-bottom: 45px;
+    margin: auto;
     box-shadow: 2px 1px 50px #c4c3c3;
     text-align: center;
     }
