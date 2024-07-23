@@ -48,3 +48,49 @@ h1{
     background: #e81597;
     color: #ededed;
 }
+
+@media only  screen and (max-width:500px) {
+    body{
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        
+    }
+
+    h1{
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 5rem;
+        padding-top: 3px;
+    }
+    
+
+    .box{
+    width: 17rem;
+    height: 17rem;
+    padding: 0.2rem;
+    font-size: 13px;
+    border-radius: 1rem;
+    margin-bottom: 45px;
+    box-shadow: 2px 1px 50px #c4c3c3;
+    text-align: center;
+    }
+
+    .btn{
+        
+        display: block;
+        width: 90px;
+        font-size: 13px;
+        font-weight: 300;
+        border-radius: 0.4rem;
+        cursor: pointer;
+        transition: 0.5s;
+        border: 2px solid black;
+        position: absolute;
+        left: 40%;
+        bottom: 0;
+    }
+    .box h3{
+        padding-top: 8px;
+    }
+}
