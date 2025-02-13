@@ -1,22 +1,59 @@
+const box = document.getElementById("box");
+const btn = document.getElementById("generateJoke");
+const copyBtn = document.getElementById("copyJoke");
+const speakBtn = document.getElementById("speakJoke");
+const categorySelect = document.getElementById("jokeCategory");
+const themeToggle = document.getElementById("themeToggle");
 
-////................................Accessing the elements .................................
-const box= document.getElementById("box");
-const btn= document.querySelector(".btn");
+const getJokes = async () => {
+    box.innerHTML = `<h2>😂 Loading...</h2>`;
 
-//.....................fetching the url
+    let category = categorySelect.value;
+    let apiURL = "https://official-joke-api.appspot.com/jokes/random";
+    
+    if (category !== "random") {
+        apiURL = `https://official-joke-api.appspot.com/jokes/${category}/random`;
+    }
 
-const url = 'https://official-joke-api.appspot.com/jokes/random';
+    try {
+        let response = await fetch(apiURL);
+        let data = await response.json();
 
-const getjokes= async()=>{
-  box.innerHTML=`<h2> Loading.....</h2>`
- let response= await fetch(url);
-   console.log(response)//not in json fromat
-let data= await response.json()//json format
-console.log(data)
-  box.innerHTML= `<h2> ${data.setup}<h2><br>`
-  setTimeout(() => {
-    box.innerHTML+=`<h2>${data.punchline}<h2>`
-  }, 2000);
-  
+        if (Array.isArray(data)) {
+            data = data[0]; // For category-based API, data comes as an array
+        }
+
+        box.innerHTML = `<h2>${data.setup}</h2><br>`;
+
+        setTimeout(() => {
+            box.innerHTML += `<h2>${data.punchline}</h2>`;
+            box.innerHTML += `<img src="https://media.giphy.com/media/5GoVLqeAOo6PK/giphy.gif" alt="Laughing GIF" class="joke-img">`;
+        }, 2000);
+    } catch (error) {
+        box.innerHTML = `<h2>Oops! Something went wrong. Try again.</h2>`;
+    }
 };
-btn.addEventListener('click', (getjokes));
+
+// Copy joke to clipboard
+copyBtn.addEventListener("click", () => {
+    navigator.clipboard.writeText(box.innerText);
+    alert("Joke copied to clipboard! 📋");
+});
+
+// Speak joke aloud
+speakBtn.addEventListener("click", () => {
+    let text = box.innerText;
+    let speech = new SpeechSynthesisUtterance(text);
+    speech.lang = "en-US";
+    speech.pitch = 1;
+    speech.rate = 1;
+    window.speechSynthesis.speak(speech);
+});
+
+// Toggle dark/light mode
+themeToggle.addEventListener("change", () => {
+    document.body.classList.toggle("dark-mode");
+});
+
+// Event listener for joke button
+btn.addEventListener("click", getJokes);

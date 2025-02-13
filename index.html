@@ -3,16 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Jokes Generator</title>
+    <title>Modern Joke Generator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>😂 Random Jokes Generator</h1>
     <div class="container">
-        <h1>"Random Jokes Generator"</h1>
+        <select id="jokeCategory">
+            <option value="random">Random</option>
+            <option value="general">General</option>
+            <option value="programming">Programming</option>
+        </select>
         <div class="box" id="box">
-            <h3>Generate your jokes here</h3>
+            <h3>Click below to generate a joke!</h3>
         </div>
-        <button class="btn">Generate Joke</button>
+        <div class="controls">
+            <button class="btn" id="generateJoke">Generate Joke</button>
+            <button class="btn copy-btn" id="copyJoke">📋 Copy</button>
+            <button class="btn voice-btn" id="speakJoke">🔊 Speak</button>
+        </div>
+        <label class="switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider"></span>
+        </label>
     </div>
     <script src="app.js"></script>
 </body>

@@ -1,95 +1,121 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-.container{
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    text-align: center;
+    padding: 20px;
     position: relative;
+    transition: 0.5s ease-in-out;
 }
 
-h1{
-    text-align: center;
-    line-height: 8rem;
-    margin-bottom: 2rem;
-    font-size: 35px;
-    font-weight: 800;
+h1 {
+    font-size: 30px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 10px;
 }
 
-.box{
-    width: 30rem;
-    height: 30rem;
-    margin-left: 16%;
-    padding: 2rem ;
-    font-size: 20px;
-    border-radius: 1rem;
-    box-shadow: 2px 1px 50px #c4c3c3;
-    text-align: center;
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 500px;
 }
-.btn{
-    margin: 3rem auto;
-    display: block;
-    width: 150px;
-    font-size: 20px;
+
+#jokeCategory {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.box {
+    width: 100%;
+    padding: 2rem;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    color: white;
+    font-size: 18px;
     font-weight: 500;
-    border-radius: 0.4rem;
+}
+
+.joke-img {
+    width: 100px;
+    margin-top: 10px;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn {
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: 0.5s;
-    border: 2px solid black;
+    transition: 0.3s ease;
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    border: none;
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.5);
+    color: black;
+}
+
+/* Dark mode styles */
+.dark-mode {
+    background: linear-gradient(135deg, #333, #111);
+    color: white;
+}
+
+.dark-mode .box {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Toggle switch for theme */
+.switch {
+    margin-top: 10px;
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
     position: absolute;
-    left: 26%;
-    bottom: 10%;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    border-radius: 10px;
+    transition: 0.4s;
 }
 
-.btn:hover{
-    background: #e81597;
-    color: #ededed;
-}
-
-@media only  screen and (max-width:500px) {
-    body{
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        height: 100vh;
-        
-    }
-
-    h1{
-        font-size: 20px;
-        font-weight: 600;
-        line-height: 5rem;
-        padding-top: 3px;
-    }
-    
-
-    .box{
-    width: 18rem;
-    height: 25rem;
-    padding: 0.2rem;
-    font-size: 11px;
-    border-radius: 1rem;
-    margin: auto;
-    box-shadow: 2px 1px 50px #c4c3c3;
-    text-align: center;
-        padding: 1rem;
-    }
-
-    .btn{
-        
-        display: block;
-        width: 90px;
-        font-size: 13px;
-        font-weight: 300;
-        border-radius: 0.4rem;
-        cursor: pointer;
-        transition: 0.5s;
-        border: 2px solid black;
-        position: absolute;
-        left: 40%;
-        bottom: 0;
-    }
-    .box h3{
-        padding-top: 8px;
-    }
+input:checked + .slider {
+    background-color: #222;
 }
