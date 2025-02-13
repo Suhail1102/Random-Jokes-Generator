@@ -3,10 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{
-  background: url('images/smile.jpg');
-  background-size: cover;
-}
+
 .container{
     position: relative;
 }
